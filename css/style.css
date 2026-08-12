@@ -1,0 +1,185 @@
+:root {
+    --primario: #ff4757;
+    --oscuro: #1e222b;
+    --tarjeta: #2f3542;
+    --blanco: #ffff;
+    --verde: #2ed573;
+    --alerta: #ffa502;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: var(--oscuro);
+    color: var(--blanco);
+    padding: 15px;
+    padding-bottom: 140px;
+}
+
+header{
+    text-align: center;
+    margin: 20px 0;
+}
+
+header h1 {
+    color: var(--primario);
+    font-size: 26px;
+}
+
+header p {
+    color: #a4b0be;
+    font-size: 14px;
+}
+
+.menu-grid {
+    display: grid;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.producto {
+    background: var(--tarjeta);
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.info p {
+    font-size: 12px;
+    color: #a4b0be;
+}
+
+.precio {
+    font-weight: bold;
+    color: var(--primario);
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.controles {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-cant {
+    background: var(--primario);
+    border: none;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cant {
+    font-size: 16px;
+    font-weight: bold;
+    min-width: 15px;
+    text-align: center;
+}
+
+.seccion-formulario {
+    background: var(--tarjeta);
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.seccion-formulario h2 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: var(--primario);
+    border-bottom: 1px solid #4f5666;
+    padding-bottom: 5px;
+}
+
+.campo {
+    margin-bottom: 12px;
+}
+
+.campo label {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: #a4b0be;
+}
+
+.campo select,
+.campo input,
+.campo textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #4f5666;
+    background: #3f4452;
+    color: white;
+    font-size: 14px;
+}
+
+.campo textarea {
+    resize: none;
+    height: 60px;
+}
+
+.info-banco {
+    background: #1e222b;
+    border-left: 4px solid var(--alerta);
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    display: none;
+}
+
+.info-banco p {
+    font-size: 13px;
+    color: #f1f2f6;
+    margin-bottom: 4px;
+}
+
+.barra-total {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #15181f;
+    padding: 15px;
+    border-top: 2px solid var(--primario);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 100;
+}
+
+.fila-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn-enviar {
+    background: var(--verde);
+    color: white;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}

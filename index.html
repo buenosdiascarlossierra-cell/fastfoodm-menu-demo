@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Pro</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <header>
+        <h1>Burger Falcon Dabajuro</h1>
+        <p>tu pidodo rapido con verificacion de pago</p>
+    </header>
+
+    <!--menu de productos-->
+    <div class="menu-grid">
+        <!-- porducto 01 -->
+        <div class="producto" data-id="hamburguesa">
+            <div class="info">
+                <h3>Hamburguesa Especial</h3>
+                <p>carne, queso, jamon, y papitas</p>
+            </div>
+            <div>
+                <div class="precio">$5.50</div>
+                <div class="controles">
+                    <button class="btn-cant" onclick="restar('hamburguesa')">-</button>
+                    <span class="cant" id="cant-hamburguesa">0</span>
+                    <button class="btn-cant" onclick="sumar('hamburguesa')">+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- producto 02 -->
+        <div class="producto" data-id="patacon">
+            <div class="info">
+                <h3>Patacon Zuliano</h3>
+                <p>platano verde, carne mechada y queso fresco.</p>
+            </div>
+            <div>
+                <div class="precio">$6.00</div>
+                <div class="controles">
+                    <button class="btn-cant" onclick="restar('patacon')">-</button>
+                    <span class="cant" id="cant-patacon">0</span>
+                    <button class="btn-cant" onclick="sumar('patacon')">+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- datos de entrega y facturacion -->
+    <div class="seccion-formulario">
+        <h2>1. Datos del Cliente</h2>
+        <div class="campo">
+            <label>Nombre y Apellido*</label>
+            <input type="text" id="nombre_cliente" placeholder="Ej. juan Perez">
+        </div>
+        <div class="campo">
+            <label>Cedula de Identidad*</label>
+            <input type="number" id="cedula_cliente" placeholder="Ej. 123455678">
+        </div>
+        <div class="campo">
+            <label>Zona de Delivery*</label>
+            <select id="delivery" onchange="calcularTotal()">
+                <option value="0.00">Retiro en el local ($0.00)</option>
+                <option value="1.00">Sector Centro / Av. Bolivar ($1.00)</option>
+                <option value="1.50">La Sabana / Soublette ($1.50)</option>
+                <option value="2.00">Zonas mas alejadas ($2.00)</option>
+            </select>
+        </div>
+        <div class="campo">
+            <label>Direccion Exacta de Entrega*</label>
+            <textarea id="direccion" placeholder="Ej. Calle Paez, casa verde frente a la plaza"></textarea>
+        </div>
+    </div>
+
+    <!-- seccion de pago -->
+    <div class="seccion-formulario">
+        <h2>2. Metodo de Pago</h2>
+        <div class="campo">
+            <label>Seleccione como desea pagar</label>
+            <select id="pago" onchange="alternarPago()">
+                <option value="Efectivo Divisas">Efectivo Divisas ($)</option>
+                <option value="Pago Movil">Pago Mivil</option>
+            </select>
+        </div>
+
+        <!-- Introduccion dinamica de pago movil -->
+        <div id="bloque-banco" class="info-banco">
+            <p><strong>Datos para el Pago Movil</strong></p>
+            <p>· Banco: Banesco (0134)</p>
+            <p>· Telefono: 0412-5555555</p>
+            <p>· Cedula: V-15.678.901</p>
+            <p style="color: var(--alerta); margin-top: 5px; font-size: 11px;">Realiza el pago y coloca los datos abajo:</p>
+        </div>
+
+        <!-- campo de comprobacion de pago -->
+        <div id="campo-verficacion" style="display: none;">
+            <div class="campo">
+                <label>Banco desde el que pagaste*</label>
+                <input type="text" id="banco_emisor" placeholder="Ej. mercantil, BNC, Provincial">
+            </div>
+            <div class="campo">
+                <label>Numero de referencia (Ultimos 4 0 6 digitos)*</label>
+                <input type="number" id="referencia" placeholder="Ej. 4589">
+            </div>
+        </div>
+    </div>
+
+    <!-- barra inferior de accion -->
+    <div class="barra-total">
+        <div style="display: flex; justify-content: flex-end; margin-bottom: 2px;">
+            <button onclick="vaciarCarrito()" style="background: none; border: none; color: #ff4757; font-size: 12px; cursor: pointer; text-decoration: underline; font-weight: 500;">
+                Vaciar Carrito
+            </button>
+        </div>
+        <div class="fila-total">
+            <span>Total Neto:</span>
+            <div>
+                <span id="monto-total">$0.00</span>
+                <span id="monto-total-bs">0.00 Bs.</span>
+            </div>
+        </div>
+        <button class="btn-enviar" onclick="enviarPedido()">
+            Validar y Enviar por WhatsApp
+        </button>
+    </div>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>
