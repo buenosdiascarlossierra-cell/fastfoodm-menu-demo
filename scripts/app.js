@@ -113,6 +113,6 @@ function enviarPedido() {
     texto += `*TOTAL REF:* $${calculo.totalDolares.toFixed(2)}\n`;
     texto += `*TOTAL BS:* ${calculo.totalBolivares.toFixed(2)} Bs.`;
 
-    const urlDestno = "http://wa.me"+TELEFONO_COMERCIO+"?text="+encodeURIComponent(texto);
+    const urlDestno = "http://wa.me/"+TELEFONO_COMERCIO+"?text="+encodeURIComponent(texto);
     window.open(urlDestno, '_blank');
 }
